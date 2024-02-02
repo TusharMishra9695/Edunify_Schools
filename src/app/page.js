@@ -1,6 +1,7 @@
 "use client";
 import styles from "./page.module.css";
 import { useForm, Controller } from "react-hook-form";
+import Link from "next/link";
 import Select from "react-select";
 import { options, facilities } from "./utils/content";
 import { ErrorMessage } from "@hookform/error-message";
@@ -203,7 +204,9 @@ export default function Home() {
         </form>
       </div>
       <div>
-        <p className={styles.checkout}>Check Out School List</p>
+        <Link href="/showSchools">
+          <p className={styles.checkout}>Check Out School List</p>
+        </Link>
       </div>
     </main>
   );

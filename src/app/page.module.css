@@ -85,3 +85,60 @@
 .input_submit:hover {
   background-color: #45a049;
 }
+.school_list div:nth-child(1) label {
+  font-size: 25px;
+  font-weight: 600;
+  margin-right: 20px;
+  color: #212121;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.school_list div:nth-child(1) span {
+  font-size: 25px;
+  font-weight: 600;
+  margin-right: 20px;
+  color: #212121;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.school_list div:nth-child(1) span:hover {
+  padding: 10px;
+  background-color: #212121;
+  color: #fff;
+  border-radius: 4px;
+}
+.school_list {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.outer_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.inner_list img {
+  width: 100%;
+  max-width: 250px;
+
+  height: 250px;
+  border-radius: 4px;
+}
+.inner_list {
+  background-color: #f5f7f9;
+  border-radius: 4px;
+}
+.inner_list div {
+  padding-left: 20px;
+}
+.handle_text {
+  padding: 10px 0px;
+}
+.handle_text p {
+  padding: 5px 0px;
+}
