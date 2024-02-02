@@ -28,11 +28,12 @@
 .description p {
   position: relative;
   margin: 0;
-  padding: 1rem;
+  padding: 0.7rem;
   background-color: rgba(var(--callout-rgb), 0.5);
   border: 1px solid rgba(var(--callout-border-rgb), 0.3);
   border-radius: var(--border-radius);
 }
+
 .checkout {
   color: #212121;
   font-size: 15px;
@@ -56,7 +57,7 @@
 .detail {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 .detail input {
   width: 100%;

@@ -1,9 +1,7 @@
 "use client";
 import styles from "./page.module.css";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Link from "next/link";
-import Select from "react-select";
-import { options, facilities } from "./utils/content";
 import { ErrorMessage } from "@hookform/error-message";
 
 export default function Home() {
@@ -94,6 +92,20 @@ export default function Home() {
             />
           </div>{" "}
           <div className={styles.detail}>
+            <p>State </p>
+            <input
+              type="text"
+              {...register("state", {
+                required: "This field is required*",
+              })}
+            />
+            <ErrorMessage
+              errors={errors}
+              name="state"
+              render={({ message }) => <span>{message}</span>}
+            />
+          </div>
+          <div className={styles.detail}>
             <p>Contact Number</p>
             <input
               type="number"
@@ -134,69 +146,6 @@ export default function Home() {
             <ErrorMessage
               errors={errors}
               name="email"
-              render={({ message }) => <span>{message}</span>}
-            />
-          </div>
-          <div className={styles.detail} style={{ marginBottom: "15px" }}>
-            <p>Type of School</p>
-            <Controller
-              name="options"
-              control={control}
-              render={({ field: { onChange } }) => (
-                <Select
-                  options={options}
-                  onChange={(val) => onChange(val.value)}
-                />
-              )}
-              rules={{ required: true }}
-            />
-            {errors.options && <span>This field is required*</span>}
-          </div>
-          <div className={styles.detail} style={{ marginBottom: "15px" }}>
-            <p>Facilities and Amenities</p>
-            <Controller
-              name="facilities"
-              control={control}
-              render={({ field: { onChange } }) => (
-                <Select
-                  options={facilities}
-                  isMulti
-                  onChange={(val) => onChange(val)}
-                />
-              )}
-              rules={{ required: true }}
-            />
-            {errors.facilities && <span>This field is required*</span>}
-          </div>
-          <div className={styles.detail}>
-            <p>Tuition fees in (₹)</p>
-            <input
-              type="number"
-              {...register("fees", {
-                required: "This  is required.",
-                maxLength: {
-                  value: 8,
-                  message: "Max upto 9cr allowed",
-                },
-              })}
-            />
-            <ErrorMessage
-              errors={errors}
-              name="fees"
-              render={({ message }) => <span>{message}</span>}
-            />
-          </div>
-          <div className={styles.detail}>
-            <p>Social Media Links </p>
-            <input
-              type="text"
-              {...register("social_links", {
-                required: "This field is required*",
-              })}
-            />
-            <ErrorMessage
-              errors={errors}
-              name="social_links"
               render={({ message }) => <span>{message}</span>}
             />
           </div>
