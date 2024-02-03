@@ -36,7 +36,7 @@ export default function ShowSchools() {
           schoolList.map((item, id) => {
             const { img, name, address, city } = item;
             return (
-              <div className={styles.inner_list}>
+              <div className={styles.inner_list} key={id}>
                 <img
                   src={
                     img ||
