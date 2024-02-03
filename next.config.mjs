@@ -21,7 +21,7 @@ const nextConfig = {
         ],
       },
       {
-        source: "/api/add-school/:path*",
+        source: "/api/add-school",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
