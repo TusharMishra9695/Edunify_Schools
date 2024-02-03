@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { db } from "@/app/lib/db";
 export async function POST(req, res) {
   let payload = await req.json();
-
   if (
     !payload.name ||
     !payload.address ||
