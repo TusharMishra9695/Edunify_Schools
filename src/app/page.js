@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { ErrorMessage } from "@hookform/error-message";
+import axios from "axios";
 
 export default function Home() {
   const {
@@ -12,7 +13,18 @@ export default function Home() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  async function onSubmit(item) {
+    axios
+      .post("http://localhost:3000/api/add-school", item)
+      .then((res) => {
+        if (res.data.success) {
+          alert("School Registered Successfully !");
+        }
+      })
+      .catch((err) => {
+        console.log(err, "error");
+      });
+  }
   return (
     <main className={styles.main}>
       <div className={styles.form}>
@@ -22,7 +34,11 @@ export default function Home() {
           </div>
           <div className={styles.detail}>
             <p>School Image</p>
-            <input type="file" {...register("image", { required: true })} />
+            <input
+              type="file"
+              accept="image/*"
+              {...register("image", { required: true })}
+            />
             {errors.image && <span>This field is required*</span>}
           </div>
           <div className={styles.detail}>
@@ -113,7 +129,7 @@ export default function Home() {
                 required: "This field is required*",
                 maxLength: {
                   value: 10,
-                  message: "Enter correct number",
+                  message: "Max 10 numbers allowed ",
                 },
                 minLength: {
                   value: 10,
