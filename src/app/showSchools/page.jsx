@@ -22,6 +22,7 @@ export default function ShowSchools() {
         console.log(e, "some error occured");
       });
   }
+  console.log("render");
   return (
     <div className={styles.school_list}>
       <div>
@@ -31,7 +32,7 @@ export default function ShowSchools() {
         <label>Here Is The School List For You</label>
       </div>
       <div className={styles.outer_list}>
-        {schoolList &&
+        {schoolList ? (
           schoolList.map((item, id) => {
             const { img, name, address, city } = item;
             return (
@@ -45,16 +46,23 @@ export default function ShowSchools() {
                 />
                 <div className={styles.handle_text}>
                   <p>{city}</p>
-                  <h3>{name && name.length > 25 ? name.slice(0, 25) : name}</h3>
+                  <h3>
+                    {name && name.length > 22
+                      ? `${name.slice(0, 22)}...`
+                      : name}
+                  </h3>
                   <p>
-                    {address && address.length > 25
-                      ? address.slice(0, 25)
+                    {address && address.length > 22
+                      ? `${address.slice(0, 22)}...`
                       : address}
                   </p>
                 </div>
               </div>
             );
-          })}
+          })
+        ) : (
+          <h3>Loading School List ...</h3>
+        )}
       </div>
     </div>
   );
