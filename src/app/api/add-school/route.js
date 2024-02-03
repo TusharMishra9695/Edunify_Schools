@@ -17,7 +17,7 @@ export async function POST(req, res) {
     );
   } else {
     var sql =
-      "INSERT INTO dummy VALUES ('" +
+      "INSERT INTO school_list (name, address, city, state, contact, image , email) VALUES ('" +
       payload.name +
       "','" +
       payload.address +
@@ -33,17 +33,19 @@ export async function POST(req, res) {
       payload.email +
       "')";
     try {
-      db.query(sql, (err, results) => {
-        if (err) {
-          console.log("db not connected");
-        } else {
-          console.log("registered");
-        }
+      const list = await new Promise((resolve, reject) => {
+        db.query(sql, (err, results) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(results);
+          }
+        });
       });
-      // return NextResponse.json(
-      //   { result: "School registered!", success: true },
-      //   { status: 201 }
-      // );
+      return NextResponse.json(
+        { result: "School registered Successfully", success: true },
+        { status: 201 }
+      );
     } catch (e) {
       return NextResponse.json({ message: e, success: false }, { status: 500 });
     }

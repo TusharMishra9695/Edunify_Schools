@@ -14,8 +14,9 @@ export default function Home() {
   } = useForm();
 
   async function onSubmit(item) {
+    let formData = { ...item, image: item.image[0].name };
     axios
-      .post("http://localhost:3000/api/add-school", item)
+      .post("http://localhost:3000/api/add-school", formData)
       .then((res) => {
         if (res.data.success) {
           alert("School Registered Successfully !");
