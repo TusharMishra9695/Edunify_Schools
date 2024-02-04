@@ -13,7 +13,7 @@ export default function ShowSchools() {
   }, []);
   function handleSchools() {
     axios
-      .get("api/show-school")
+      .get("http://localhost:3000/api/show-school")
       .then((res) => {
         setSchoolList(res.data.result);
       })
