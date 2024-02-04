@@ -21,7 +21,7 @@ export default function Home() {
       body: JSON.stringify(formData),
     };
 
-    await fetch("http://localhost:3000/api/add-school", options)
+    await fetch("api/add-school", options)
       .then((res) => {
         if (res.data.success) {
           alert("School Registered Successfully !");
