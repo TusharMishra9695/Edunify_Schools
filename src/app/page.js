@@ -15,31 +15,33 @@ export default function Home() {
 
   async function onSubmit(item) {
     let formData = { ...item, image: item.image[0].name };
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    };
+    // const options = {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(formData),
+    // };
 
-    await fetch("api/add-school", options)
+    // const result = await fetch("api/add-school", options)
+    //   .then((res) => {
+    //     console.log(res, "res");
+    //     if (res.ok) {
+    //       alert("School Registered Successfully !");
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log("err", err);
+    //   });
+    // console.log(result, "reulshdijh");
+    axios
+      .post("api/add-school", formData)
       .then((res) => {
         if (res.data.success) {
           alert("School Registered Successfully !");
         }
       })
       .catch((err) => {
-        console.log("err", err);
+        console.log(err, "error");
       });
-    // axios
-    //   .post("http://localhost:3000/api/add-school", formData)
-    //   .then((res) => {
-    //     if (res.data.success) {
-    //       alert("School Registered Successfully !");
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log(err, "error");
-    //   });
   }
   return (
     <main className={styles.main}>

@@ -15,7 +15,6 @@ export default function ShowSchools() {
     axios
       .get("http://localhost:3000/api/show-school")
       .then((res) => {
-        console.log(res, "res");
         setSchoolList(res.data.result);
       })
       .catch((e) => {
