@@ -17,7 +17,7 @@ export default function Home() {
     let formData = { ...item, image: item.image[0].name };
 
     axios
-      .post("http://localhost:3000/api/add-school", formData)
+      .post("/api/add-school", formData)
       .then((res) => {
         if (res.data.success) {
           alert("School Registered Successfully !");
